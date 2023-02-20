@@ -45,6 +45,7 @@
                                             placeholder="Nama Tamu" style="margin-right: 20px">
 
                                     </div>
+                                    {{-- bbj --}}
                                     <div class="form-group" style="display:inline-block">
                                         <input type="date" id="date" name="date" size="70"
                                             class="form-control @error('date') is-invalid @enderror"
