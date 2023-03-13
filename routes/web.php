@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TamuController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,6 +25,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/login', function () {
     return view('login');
 })->name('login');
+
+Route::get('/user', function () {
+    return view('user');
+})->name('user');
+
+Route::post("user/store",[UserController::class, 'storetamu'])->name('storetamu');
+
 
 Route::get('/postlogin', [LoginController::class, 'postlogin'])->name('postlogin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
