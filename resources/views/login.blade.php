@@ -3,10 +3,12 @@
 
 @include('parts.head')
 
-<body class="hold-transition login-page">
+<body class="hold-transition login-page" style="background-image: url('{{ asset('images/bg.png') }}'); background-size: cover;">
+   
+  
     <div class="login-box">
         <div class="login-logo">
-            <a href="../../index2.html"><b>Buku Tamu</b></a>
+            <b style="color: white">Buku Tamu</b>
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -53,6 +55,7 @@
             <!-- /.login-card-body -->
         </div>
     </div>
+ 
     <!-- /.login-box -->
 
     @include('parts.script')
