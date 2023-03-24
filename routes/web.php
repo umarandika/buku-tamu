@@ -20,15 +20,14 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-
+Route::get('/', function () {
+    return view('user');
+})->name('user');
 
 Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/user', function () {
-    return view('user');
-})->name('user');
 
 Route::post("user/store",[UserController::class, 'storetamu'])->name('storetamu');
 
@@ -39,7 +38,7 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 
 Route::group(['middleware' => ['auth']], function () {
-    Route::get('/', [TamuController::class, 'index'])->name('home');
+    Route::get('/add', [TamuController::class, 'index'])->name('home');
     Route::post('/store', [TamuController::class, 'store'])->name('store');
     Route::get('/delete/{id}', [TamuController::class, 'destroy'])->name('delete');
 });
