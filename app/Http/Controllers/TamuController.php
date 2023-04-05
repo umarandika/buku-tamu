@@ -15,7 +15,7 @@ class TamuController extends Controller
      */
     public function index()
     {
-        $tamu = Tamu::all();
+        $tamu = Tamu::orderBy('id', 'DESC')->get();
         return view('index', compact('tamu'));
     }
 
