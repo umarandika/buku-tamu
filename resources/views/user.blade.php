@@ -3,11 +3,11 @@
 
 @include('parts.head')
 
-<body class="hold-transition login-page" style="background-image: url('{{ asset('images/bg.png') }}'); background-size: cover; ">
+<body class="hold-transition login-page" style=" background-color: #EEF5FF">
   
     <div class="login-box">
         <div class="login-logo">
-            <b style="color: white">Buku Tamu</b>
+        <h2 class="m-0 title" style="color: black">Buku Tamu</h2 >
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -16,16 +16,23 @@
 
                 <form action="{{ route('storetamu') }}" method="post">
                     @csrf
-                    <div class="input-group mb-3">
-                        <input type="name" id="name" name="name" class="form-control" placeholder="Nama Tamu">
-                    </div>
-                    <div class="input-group mb-3">
-                         <input type="date" id="date" name="date" size="70"
+                    <div class="form-group">
+                                        <input type="name" id="name" name="name"
+                                            class="form-control @error('name') is-invalid @enderror"
+                                            placeholder="Nama Tamu" >
+
+                                    </div>
+
+                    <div class="form-group">
+                                        <input type="date" id="date" name="date" 
                                             class="form-control @error('date') is-invalid @enderror"
-                                            placeholder="Tanggal" style="margin-right: 20px">
-                    </div>
+                                            placeholder="Tanggal" >
+
+                                    </div>
+                     
+                  
                         <!-- /.col -->
-                        <div class="col-4">
+                        <div>
                             <button type="submit" class="btn btn-primary btn-block">Add</button>
                         </div>
                         <!-- /.col -->
@@ -38,7 +45,7 @@
     </div>
    
     <!-- /.login-box -->
-
+    @include('parts.style') 
     @include('parts.script')
 </body>
 

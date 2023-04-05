@@ -16,24 +16,27 @@
 <script src="{{ asset('app/plugins') }}/datatables-buttons/js/buttons.colVis.min.js"></script>
 <!-- AdminLTE App -->
 <script src="{{ asset('app/dist') }}/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="{{ asset('app/dist') }}/js/demo.js"></script>
 <script>
     $(function() {
-        $("#example1").DataTable({
+        $("#bukutamu").DataTable({
             "responsive": true,
+     
             "lengthChange": false,
             "autoWidth": false,
+            columnDefs: [
+        { targets: 'no-sort', orderable: false }
+        ],
             "buttons": ["copy", "csv", "excel", "pdf", "print"]
-        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-        $('#example2').DataTable({
-            "paging": true,
-            "lengthChange": false,
-            "searching": false,
-            "ordering": true,
-            "info": true,
-            "autoWidth": false,
-            "responsive": true,
-        });
+        })
+        .buttons().container().appendTo('#bukutamu_wrapper .col-md-6:eq(0)');
+        // $('#bukutamu').DataTable({
+        //     "paging": true,
+        //     "lengthChange": false,
+        //     "searching": false,
+        //     "ordering": true,
+        //     "info": true,
+        //     "autoWidth": false,
+        //     "responsive": true,
+        // });
     });
 </script>
