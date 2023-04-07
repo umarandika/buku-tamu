@@ -3,12 +3,12 @@
 
 @include('parts.head')
 
-<body class="hold-transition login-page" style="background-image: url('{{ asset('images/bg.png') }}'); background-size: cover;">
+<body class="hold-transition login-page" style="background-color: #EEF5FF;">
    
   
     <div class="login-box">
         <div class="login-logo">
-            <b style="color: white">Buku Tamu</b>
+        <h2 class="m-0 title" style="color: black">Buku Tamu</h2 >
         </div>
         <!-- /.login-logo -->
         <div class="card">
@@ -34,30 +34,16 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8">
-                            <div class="icheck-primary">
-                                <input type="checkbox" id="remember">
-                                <label for="remember">
-                                    Remember Me
-                                </label>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-4">
+                    <div>
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
                         </div>
-                        <!-- /.col -->
-                    </div>
+                    
                 </form>
 
             </div>
-            <!-- /.login-card-body -->
         </div>
     </div>
- 
-    <!-- /.login-box -->
-
+    @include('parts.style')
     @include('parts.script')
 </body>
 

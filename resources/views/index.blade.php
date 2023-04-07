@@ -3,34 +3,32 @@
 
 @include('parts.head')
 
-<body class="hold-transition sidebar-mini layout-fixed" style="background-image: url('{{ asset('images/bg.png') }}'); background-size: cover;">
-    <div class="wrapper" >
+<body class="hold-transition sidebar-mini layout-fixed" style=" ">
+    <div class="wrapper" style="padding: 40px">
 
-        <!-- Content Wrapper. Contains page content -->
+
         <div class="content" >
-            <!-- Content Header (Page header) -->
+
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0" style="color: white">Buku Tamu</h1>
-                        </div><!-- /.col -->
+                            <h1 class="m-0 title" style="color: black">Buku Tamu</h1>
+                        </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <a href="{{ route('logout') }}">Logout</a>
+                            <form action="{{ route('logout') }}" method="get">
+                                <button type="submit" class="btn btn-primary" style="background-color: #3466FF">Log Out</button>
+                                {{--<a href="#">Logout</a> --}}
+                            </form>
                             </ol>
-                        </div><!-- /.col -->
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                        </div>
+                    </div>
+                </div>
             </div>
-            <!-- /.content-header -->
-
-            <!-- Main content -->
-            <section class="content">
-                <div class="container-fluid">
-                    <div class="card">
-                        <div class="card-header" style="background-color:rgb(239, 239, 239)">
-                            <div>
+            <section class="content" >
+                <div class="container-fluid" style="padding: 15px">
+                <div>
                                 <form action="{{ route('store') }}" method="post">
                                     @csrf
                                     <div class="form-group" style="display:inline-block">
@@ -46,39 +44,43 @@
                                             placeholder="Tanggal" style="margin-right: 20px">
 
                                     </div>
-                                    <div class="form-group" style="float: right;">
-                                        <button type="submit" class="btn btn-success">Tambah</button>
-                                        {{-- <a href="#" class="btn btn-success"> Tambah Data <i
+                                    <div class="form-group" style="display:inline-block">
+                                        <button type="submit" class="btn btn-logout" style="background-color: #BDCCFD">Tambah</button>
+                                        {{-- <a href="#" class="btn btn-primary"> Tambah Data <i
                                                 class="fas fa-plus-square"></i></a> --}}
                                     </div>
 
                                 </form>
                             </div>
-
-                        </div>
-                        <!-- /.card-header -->
+                    <div class="card">              
                         <div class="card-body">
-                            <table id="example2" class="table table-bordered table-striped">
-                                <thead>
+                        <!-- <div class="form-group" style="display:inline-block">
+                        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names.."
+                                            class="form-control"
+                                            placeholder="Search" style="margin-right: 20px">
+                       </div> -->
+                                           
+                            <table id="bukutamu" class="table table-hover">
+                                <thead style="border: none;">
                                     <tr>
                                         <th>No.</th>
-                                        <th>Name</th>
-                                        <th>Date</th>
-                                        <th>Action</th>
+                                        <th>Nama</th>
+                                        <th>Tanggal</th>
+                                        <th class="no-sort">Hapus</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($tamu as $index => $item)
                                         <tr>
                                             <td style="width: 20px; text-align:center">{{ $index + 1 }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->date }}</td>
+                                            <td class="index-name">{{ $item->name }}</td>
+                                            <td class="index-date --bs-success-bg-subtle">{{ date('d-m-Y', strtotime($item->date)) }}</td>
                                             <td style="width: 20px; text-align:center">
                                                 <form id="delete_tamu" action="{{ route('delete', $item->id) }}"
                                                     method="get">
                                                     <a href="javascript:{}"
                                                         onclick="document.getElementById('delete_tamu').submit();"><i
-                                                            class="fa fa-trash" aria-hidden="true"
+                                                            class="fa fa-times" aria-hidden="true"
                                                             style="color: rgb(213, 1, 1);"></i></a>
                                                 </form>
 
@@ -89,19 +91,17 @@
 
                             </table>
                         </div>
-                        <!-- /.card-body -->
+                     
 
-                    </div><!-- /.container-fluid -->
+                    </div>
             </section>
-            <!-- /.content -->
+   
         </div>
-        <!-- /.content-wrapper -->
+
 
     </div>
-    <!-- ./wrapper -->
-
-    <!-- jQuery -->
-
+    
+    @include('parts.style')
     @include('parts.script')
 </body>
 
