@@ -76,13 +76,10 @@
                                             <td class="index-name">{{ $item->name }}</td>
                                             <td class="index-date --bs-success-bg-subtle">{{ date('d-m-Y', strtotime($item->date)) }}</td>
                                             <td style="width: 20px; text-align:center">
-                                                <form id="delete_tamu" action="{{ route('delete', $item->id) }}"
-                                                    method="get">
-                                                    <a href="javascript:{}"
-                                                        onclick="document.getElementById('delete_tamu').submit();"><i
+                                            <a href="{{route('delete-guest', $item->id)}}"><i
                                                             class="fa fa-times" aria-hidden="true"
                                                             style="color: rgb(213, 1, 1);"></i></a>
-                                                </form>
+                                            
 
                                             </td>
                                         </tr>
