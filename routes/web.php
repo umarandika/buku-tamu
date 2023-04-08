@@ -26,7 +26,7 @@ Route::get('/login', function () {
     return view('login');
 })->name('login');
 
-Route::get('/user', function () {
+Route::get('/guest', function () {
     return view('user');
 })->name('user');
 
@@ -41,5 +41,5 @@ Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::group(['middleware' => ['auth']], function () {
     Route::get('/', [TamuController::class, 'index'])->name('home');
     Route::post('/store', [TamuController::class, 'store'])->name('store');
-    Route::get('/delete/{id}', [TamuController::class, 'destroy'])->name('delete');
+    Route::get('/delete/{id}', [TamuController::class, 'destroy'])->name('delete-guest');
 });

@@ -41,7 +41,7 @@ class UserController extends Controller
             'date' => $request->date,
         ]);
 
-        return redirect('/user');
+        return redirect('/guest');
     }
 
     /**
