@@ -16,31 +16,28 @@
 
                 <form action="{{ route('storetamu') }}" method="post">
                     @csrf
-                    <div class="form-group">
-                                        <input type="name" id="name" name="name"
-                                            class="form-control @error('name') is-invalid @enderror"
-                                            placeholder="Nama Tamu" >
+                <div class="form-group">
+                       <input type="name" id="name" name="name"
+                        class="form-control @error('name') is-invalid @enderror"
+                         placeholder="Nama Tamu">
 
-                                    </div>
+                </div>
+                <div class="form-group">
+                       <input type="date" id="date" name="date" 
+                        class="form-control @error('date') is-invalid @enderror"
+                         placeholder="Tanggal">
 
-                    <div class="form-group">
-                                        <input type="date" id="date" name="date" 
-                                            class="form-control @error('date') is-invalid @enderror"
-                                            placeholder="Tanggal" >
-
-                                    </div>
-                     
-                  
-                        <!-- /.col -->
+                </div>
                         <div>
                             <button type="submit" class="btn btn-primary btn-block">Add</button>
                         </div>
-                        <!-- /.col -->
                     </div>
+                    
                 </form>
+                <p class="text-center mt-0"><small>Bukan Tamu? <a href="{{route('login')}}">Log In sebagai Admin</a></small></p>
 
             </div>
-            <!-- /.login-card-body -->
+            
         </div>
     </div>
    

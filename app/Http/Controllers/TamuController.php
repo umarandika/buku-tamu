@@ -76,6 +76,6 @@ class TamuController extends Controller
     {
         $post = Tamu::findorfail($id);
         $post->delete();
-        return redirect('/')->with('success');
+        return back();
     }
 }

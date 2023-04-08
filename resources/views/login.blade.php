@@ -36,10 +36,11 @@
                     </div>
                     <div>
                             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
-                        </div>
+                    </div>
+                    
                     
                 </form>
-
+                <p class="text-center pt-2 mb-0"><small>Bukan Admin? <a href="{{route('user')}}">Log In sebagai Tamu</a></small></p>
             </div>
         </div>
     </div>
